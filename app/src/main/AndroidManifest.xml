@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Zero network permissions requested - fully offline -->
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CodeReader">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.CodeReader">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- ACTION_VIEW Intent Filters for Code & Jupyter File Extensions -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="file" android:host="*" />
+                <data android:scheme="content" android:host="*" />
+
+                <!-- All Supported Code Extensions -->
+                <data android:pathPattern=".*\\.ipynb" />
+                <data android:pathPattern=".*\\.py" />
+                <data android:pathPattern=".*\\.java" />
+                <data android:pathPattern=".*\\.c" />
+                <data android:pathPattern=".*\\.cpp" />
+                <data android:pathPattern=".*\\.h" />
+                <data android:pathPattern=".*\\.tsx" />
+                <data android:pathPattern=".*\\.ts" />
+                <data android:pathPattern=".*\\.js" />
+                <data android:pathPattern=".*\\.jsx" />
+                <data android:pathPattern=".*\\.css" />
+                <data android:pathPattern=".*\\.scss" />
+                <data android:pathPattern=".*\\.html" />
+                <data android:pathPattern=".*\\.json" />
+                <data android:pathPattern=".*\\.xml" />
+                <data android:pathPattern=".*\\.md" />
+                <data android:pathPattern=".*\\.yaml" />
+                <data android:pathPattern=".*\\.yml" />
+                <data android:pathPattern=".*\\.kt" />
+                <data android:pathPattern=".*\\.go" />
+                <data android:pathPattern=".*\\.rs" />
+                <data android:pathPattern=".*\\.sh" />
+                <data android:pathPattern=".*\\.csv" />
+
+                <!-- Common MIME Types -->
+                <data android:mimeType="text/*" />
+                <data android:mimeType="application/json" />
+                <data android:mimeType="application/x-ipynb+json" />
+                <data android:mimeType="application/javascript" />
+                <data android:mimeType="application/xml" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
